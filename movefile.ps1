@@ -12,7 +12,7 @@ git clone $githubRepo
 cd repo
 
 # Add the AWS CodeCommit repository as a remote
-git remote add aws $awsRepo
+git remote add aws $FrontEnd-Angular
 
 # Configure AWS CLI with access keys
 aws configure set aws_access_key_id $accessKeyId
