@@ -9,10 +9,10 @@ $region = "us-east-1"
 git clone $githubRepo
 
 # Navigate to the cloned repository
-cd repo
+cd frantend
 
 # Add the AWS CodeCommit repository as a remote
-git remote add aws $FrontEnd-Angular
+git remote add aws $awsRepo
 
 # Configure AWS CLI with access keys
 aws configure set aws_access_key_id $accessKeyId
