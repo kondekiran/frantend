@@ -10,10 +10,15 @@ jobs:
     steps:
     - name: Clone repository
       run: |
-        git clone https://github.com/username/repo.git
+        git clone https://github.com/kondekiran/backend.git
+        git config --global user.name "konde kiran"
+        git config --global user.email "kondekiran9292@gmail.com"
+
+        
       # replace with appropriate AWS command to clone the repo
 
     - name: Run script file
       run: |
         ./git.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $AWS_REGION
       # replace with appropriate AWS command to execute your script
+      
