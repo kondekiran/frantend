@@ -28,7 +28,6 @@ jobs:
         git checkout $DEST_BRANCH
 
     - name: Copy directory
-       run:ls backend
       run: cp -r ../backend/directory-to-push frantend/
 
     - name: Commit and push changes
@@ -37,5 +36,3 @@ jobs:
         git add .
         git commit -m "Pushed directory from source repository"
         git push origin $DEST_BRANCH
-
-
