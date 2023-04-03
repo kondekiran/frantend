@@ -9,8 +9,8 @@ jobs:
     env:
       SOURCE_REPO_URL: "https://github.com/kondekiran/backend.git"
       DEST_REPO_URL: "https://github.com/username/repo.git"
-      SOURCE_BRANCH: "main"
-      DEST_BRANCH: "main"
+      SOURCE_BRANCH: "master"
+      DEST_BRANCH: "master"
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
