@@ -1,29 +1,15 @@
-$env:SOURCE_REPO_URL = "https://github.com/kondekiran/backend.git"
-$env:DEST_REPO_URL = "https://github.com/kondekiran/frantend.git"
-$env:SOURCE_BRANCH = "master"
-$env:DEST_BRANCH = "master"
-
-# Clone source repository
-git clone $env:SOURCE_REPO_URL
-cd backend
-git config --global user.name "kondekiran"
-git config --global user.email "kondekiran9292@gmail.com"
-git checkout $env:SOURCE_BRANCH
-
-# Clone destination repository
-git clone $env:DEST_REPO_URL
-cd frantend
-git config --global user.name "kondekiran"
-git config --global user.email "kondekiran9292@gmail.com"
-git checkout $env:DEST_BRANCH
-
-# Copy directory
-Copy-Item -Path "backend\directory-to-push" -Destination "frantend\directory-to-push" -Recurse
-
-# Commit and push changes
-cd frantend
-git add .
-git commit -m "Pushed directory from source repository"
-git push origin $env:DEST_BRANCH
-
-
+name: Push directory to another repository
+on: push
+jobs:
+  check-bats-version:
+    runs-on: windows-latest
+    environment: kiran
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run script file
+      env:
+        $accessKeyId: ${{secrets.AWS_ACCESS_KEY_ID}}
+        $secretAccessKey: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      run: |
+         powershell.exe ./movefile.ps1 $accessKeyId $secretAccessKey
+      shell: pwsh
