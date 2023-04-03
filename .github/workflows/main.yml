@@ -1,45 +1,29 @@
+$env:SOURCE_REPO_URL = "https://github.com/kondekiran/backend.git"
+$env:DEST_REPO_URL = "https://github.com/kondekiran/frantend.git"
+$env:SOURCE_BRANCH = "master"
+$env:DEST_BRANCH = "master"
 
-on:
-  push:
-    branches:
-      - master
-jobs:
-  push-directory:
-    runs-on: ubuntu-latest
-    env:
-      SOURCE_REPO_URL: "https://github.com/kondekiran/backend.git"
-      DEST_REPO_URL: "https://github.com/kondekiran/frantend.git"
-      SOURCE_BRANCH: "master"
-      DEST_BRANCH: "master"
-    steps:
-    - name: Clone source repository
-      run: |
-        git clone $SOURCE_REPO_URL
-        cd backend
-        git config --global user.name "kondekiran"
-        git config --global user.email "kondekiran9292@gmail.com"
-        git checkout $SOURCE_BRANCH
+# Clone source repository
+git clone $env:SOURCE_REPO_URL
+cd backend
+git config --global user.name "kondekiran"
+git config --global user.email "kondekiran9292@gmail.com"
+git checkout $env:SOURCE_BRANCH
 
-    - name: Clone destination repository
-      run: |
-        git clone $DEST_REPO_URL
-        cd frantend
-        git config --global user.name "kondekiran"
-        git config --global user.email "kondekiran9292@gmail.com"
-        git checkout $DEST_BRANCH
+# Clone destination repository
+git clone $env:DEST_REPO_URL
+cd frantend
+git config --global user.name "kondekiran"
+git config --global user.email "kondekiran9292@gmail.com"
+git checkout $env:DEST_BRANCH
 
-    - name: Create directory to push
-      run: |
-        mkdir frantend/directory-to-push
+# Copy directory
+Copy-Item -Path "backend\directory-to-push" -Destination "frantend\directory-to-push" -Recurse
 
-    - name: Copy directory
-      run: |
-        cp -r backend/directory-to-push/* frantend/directory-to-push/
+# Commit and push changes
+cd frantend
+git add .
+git commit -m "Pushed directory from source repository"
+git push origin $env:DEST_BRANCH
 
-    - name: Commit and push changes
-      run: |
-        cd frantend
-        git add .
-        git commit -m "Pushed directory from source repository"
-        git push origin $DEST_BRANCH
 
