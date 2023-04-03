@@ -2,7 +2,7 @@ name: Push directory to another repository
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   push-directory:
     runs-on: ubuntu-latest
