@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SOURCE_REPO_URL: "https://github.com/kondekiran/backend.git"
-      DEST_REPO_URL: "https://github.com/username/repo.git"
+      DEST_REPO_URL: "https://github.com/kondekiran/frantend.git"
       SOURCE_BRANCH: "master"
       DEST_BRANCH: "master"
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
