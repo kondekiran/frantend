@@ -19,7 +19,7 @@ jobs:
       run: |
         git clone $SOURCE_REPO_URL
         cd backend
-        git config --global user.name "konde kiran"
+        git config --global user.name "kondekiran"
         git config --global user.email "kondekiran9292@gmail.com"
         git checkout $SOURCE_BRANCH
       # replace with appropriate AWS command to clone the repo
@@ -28,7 +28,7 @@ jobs:
       run: |
         git clone $DEST_REPO_URL
         cd repo
-        git config --global user.name "konde kiran"
+        git config --global user.name "kondekiran"
         git config --global user.email "kondekiran9292@gmail.com"
         git checkout $DEST_BRANCH
 
