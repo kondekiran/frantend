@@ -1,8 +1,8 @@
 # Set variables
 $githubRepo = "https://github.com/username/repo.git"
 $awsRepo = "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/FrontEnd-Angular"
-$accessKeyId = "AWS_ACCESS_KEY_ID"
-$secretAccessKey = "AWS_SECRET_ACCESS_KEY"
+$accessKeyId = $env:AWS_ACCESS_KEY_ID
+$secretAccessKey = $env:AWS_SECRET_ACCESS_KEY
 $region = "us-east-1"
 
 # Clone the GitHub repository
