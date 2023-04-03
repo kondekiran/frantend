@@ -6,7 +6,7 @@ $secretAccessKey = "<your-secret-access-key>"
 $region = "us-east-1"
 
 # Clone the GitHub repository
-git clone $githubRepo
+ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/FrontEnd-Angular
 
 # Navigate to the cloned repository
 cd frantend
