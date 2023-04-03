@@ -1,24 +1,44 @@
 name: Push directory to another repository
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
-  check-bats-version:
+  push-directory:
     runs-on: ubuntu-latest
     env:
+      SOURCE_REPO_URL: "https://github.com/kondekiran/backend.git"
+      DEST_REPO_URL: "https://github.com/username/repo.git"
+      SOURCE_BRANCH: "main"
+      DEST_BRANCH: "main"
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
     steps:
-    - name: Clone repository
+    - name: Clone source repository
       run: |
-        git clone https://github.com/kondekiran/backend.git
+        git clone $SOURCE_REPO_URL
+        cd backend
         git config --global user.name "konde kiran"
         git config --global user.email "kondekiran9292@gmail.com"
-
-        
+        git checkout $SOURCE_BRANCH
       # replace with appropriate AWS command to clone the repo
 
-    - name: Run script file
+    - name: Clone destination repository
       run: |
-        ./git.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $AWS_REGION
-      # replace with appropriate AWS command to execute your script
-      
+        git clone $DEST_REPO_URL
+        cd repo
+        git config --global user.name "konde kiran"
+        git config --global user.email "kondekiran9292@gmail.com"
+        git checkout $DEST_BRANCH
+
+    - name: Copy directory
+      run: cp -r backend/directory-to-push repo/
+
+    - name: Commit and push changes
+      run: |
+        cd repo
+        git add .
+        git commit -m "Pushed directory from source repository"
+        git push origin $DEST_BRANCH
+
