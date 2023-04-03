@@ -1,5 +1,5 @@
 # Set variables
-$githubRepo = "https://github.com/username/repo.git"
+$githubRepo = "https://github.com/kondekiran/frantend.git"
 $awsRepo = "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/FrontEnd-Angular"
 $accessKeyId = $env:AWS_ACCESS_KEY_ID
 $secretAccessKey = $env:AWS_SECRET_ACCESS_KEY
