@@ -1,3 +1,4 @@
+
 on:
   push:
     branches:
@@ -27,13 +28,13 @@ jobs:
         git config --global user.email "kondekiran9292@gmail.com"
         git checkout $DEST_BRANCH
 
+    - name: Create directory to push
+      run: |
+        mkdir frantend/directory-to-push
+
     - name: Copy directory
       run: |
-        if [ -d "backend/directory-to-push" ]; then
-          cp -r backend/directory-to-push frantend/
-        else
-          echo "directory-to-push not found in backend repository"
-        fi
+        cp -r backend/directory-to-push/* frantend/directory-to-push/
 
     - name: Commit and push changes
       run: |
