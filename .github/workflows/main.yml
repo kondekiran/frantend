@@ -26,11 +26,12 @@ jobs:
 
     - name: Clone destination repository
       run: |
-        git clone $DEST_REPO_URL
-        cd repo
-        git config --global user.name "kondekiran"
-        git config --global user.email "kondekiran9292@gmail.com"
-        git checkout $DEST_BRANCH
+       git clone $DEST_REPO_URL
+       cd frantend
+       git config --global user.name "kondekiran"
+       git config --global user.email "kondekiran9292@gmail.com"
+       git checkout $DEST_BRANCH
+
 
     - name: Copy directory
       run: cp -r backend/directory-to-push repo/
